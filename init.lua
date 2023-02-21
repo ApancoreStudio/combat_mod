@@ -48,11 +48,13 @@ combat_api.punch = function(player, hitter, time_from_last_punch, tool_capabilit
 	player:set_hp(player:get_hp()-damage, "punch")
 
 	-- Отбрасывание
-	player:add_velocity({
-		x = dir.x*damage,
-		y = 1*damage,
-		z = dir.z*damage,
-	})
+	if damage > 0 then
+		player:add_velocity({
+			x = dir.x*5,
+			y = 4,
+			z = dir.z*5,
+		})
+	end
 
 	return true
 end
